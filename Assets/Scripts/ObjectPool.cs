@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ObjectPool : MonoBehaviour
 {
-    public GameObject humanPrefab;
+    public GameObject prefab;
 
     public int poolSize;
 
@@ -15,7 +15,7 @@ public class ObjectPool : MonoBehaviour
     {
         for (int i = 0; i < poolSize; i++)
         {
-            var obj = Instantiate(humanPrefab);
+            var obj = Instantiate(prefab);
             obj.SetActive(false);
             _pool.Enqueue(obj);
             

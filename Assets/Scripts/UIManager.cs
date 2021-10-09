@@ -15,11 +15,11 @@ public class UIManager : MonoBehaviour
 {
     #region Singleton
 
-    private static FoodManager instance = null;
+    private static UIManager instance = null;
     
     
     // Game Instance Singleton
-    public static FoodManager Instance
+    public static UIManager Instance
     {
         get
         { 
@@ -36,7 +36,17 @@ public class UIManager : MonoBehaviour
 
     private void Awake()
     {
+        instance = this;
+    }
+    
+    private void OnEnable()
+    {
         GameplayManager.ChangeState += GameplayManagerOnChangeState;
+    }
+
+    private void OnDisable()
+    {
+        GameplayManager.ChangeState -= GameplayManagerOnChangeState;
     }
 
     private void GameplayManagerOnChangeState(GameStates state)

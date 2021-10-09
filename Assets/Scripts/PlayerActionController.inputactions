@@ -1,0 +1,60 @@
+{
+    "name": "PlayerActionController",
+    "maps": [
+        {
+            "name": "PhoneControl",
+            "id": "a150ef4a-65cd-4469-8920-75351374f28c",
+            "actions": [
+                {
+                    "name": "TouchControl",
+                    "type": "PassThrough",
+                    "id": "fb479c84-013a-4816-b3cb-39f3dc1873fb",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "ac5cf005-e2da-438a-96e9-d5dd5c4f2769",
+                    "path": "<Touchscreen>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "TouchControl",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "ComputerControl",
+            "id": "114eaedc-9bd5-44ef-b60c-0fe766525da6",
+            "actions": [
+                {
+                    "name": "MouseControl",
+                    "type": "PassThrough",
+                    "id": "ce5a8ee0-e2e5-423d-8e8d-cea5903976cb",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "1885d712-8242-434a-846d-82151b7dcade",
+                    "path": "<Touchscreen>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MouseControl",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
