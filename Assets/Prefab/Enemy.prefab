@@ -126,6 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58121facbe602b4458bab567b98717fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isActive: 1
   score: 1000
 --- !u!114 &7254717583590993051
 MonoBehaviour:
@@ -134,7 +135,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8038903709723262686}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: edae126cfe5100e41a9bd368071ab9be, type: 3}
   m_Name: 

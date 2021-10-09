@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.AI;
 
+[DefaultExecutionOrder(0)]
 public class SpawnFood: MonoBehaviour, ISpawnFood
 {
     public float spawnInterval;
@@ -23,7 +24,6 @@ public class SpawnFood: MonoBehaviour, ISpawnFood
     }
     public void SpawnOneFood()
     {
-        //TODO enqueue when it's picked up by players so queue is never empty
         var obj = ObjectPool._pool.Dequeue();
         var spawnLocation = FindSpawnLocation();
         obj.transform.position = spawnLocation;
