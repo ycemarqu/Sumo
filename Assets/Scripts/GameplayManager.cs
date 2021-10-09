@@ -31,7 +31,7 @@ public class GameplayManager : MonoBehaviour
     public GameStates _currentState;
     public float playerSpeed;
     public int levelDuration;
-
+    public float scalingFactor;
     public GameObject players;
 
     public int PlayerCountOnPlatform { get; private set; } = 0;

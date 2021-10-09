@@ -619,13 +619,14 @@ GameObject:
   - component: {fileID: 255625800}
   - component: {fileID: 255625799}
   - component: {fileID: 255625798}
+  - component: {fileID: 255625801}
   m_Layer: 5
   m_Name: PlayingCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &255625797
 RectTransform:
   m_ObjectHideFlags: 0
@@ -711,6 +712,21 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &255625801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 255625796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 516595f810e6aba47904bcf67f8187e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  remainingPlayerCountObject: {fileID: 586627322}
+  scoreObject: {fileID: 2001261864}
+  remainingSecondsObject: {fileID: 57885490}
 --- !u!1 &256222381
 GameObject:
   m_ObjectHideFlags: 0
@@ -2347,6 +2363,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _currentState: 0
   playerSpeed: 2
+  levelDuration: 100
   players: {fileID: 2092047307}
 --- !u!1 &1672784732
 GameObject:
@@ -2422,6 +2439,7 @@ GameObject:
   - component: {fileID: 1701652380}
   - component: {fileID: 1701652379}
   - component: {fileID: 1701652384}
+  - component: {fileID: 1701652385}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -2535,6 +2553,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   RotationSpeed: 2
+--- !u!114 &1701652385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1701652378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58121facbe602b4458bab567b98717fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1715319566 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8038903709723262673, guid: 3fa39f0b79e7fcd40af496a21226199d, type: 3}
@@ -3007,8 +3037,6 @@ MonoBehaviour:
     - {fileID: 517067058}
     - {fileID: 255625796}
     - {fileID: 195959630}
-  remainingPlayerCountText: {fileID: 586627322}
-  scoreText: {fileID: 2001261864}
 --- !u!4 &2061277888 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8038903709723262673, guid: 3fa39f0b79e7fcd40af496a21226199d, type: 3}

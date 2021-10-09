@@ -43,7 +43,6 @@ public class FoodManager : MonoBehaviour
         _spawnFood = dependencies.GetComponent<ISpawnFood>();
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         _platformCollider = platform.GetComponent<Collider>();
@@ -51,6 +50,11 @@ public class FoodManager : MonoBehaviour
         _spawnFood.RepeatingSpawnFood();
     }
 
+    public void DeleteFood(GameObject food)
+    {
+        food.SetActive(false);
+        ObjectPool._pool.Enqueue(food);
+    }
 
     public void DecrementFood()
     {
