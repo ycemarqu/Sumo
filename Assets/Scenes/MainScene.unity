@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 57885493}
   - component: {fileID: 57885492}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: CountdownText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -348,7 +348,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 127836250}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.0616915, y: -16.350056, z: 3.0983834}
+  m_LocalPosition: {x: 0, y: 1.4666672, z: 0}
   m_LocalScale: {x: 20, y: 0.2, z: 20}
   m_Children: []
   m_Father: {fileID: 1766285971}
@@ -625,7 +625,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &255625797
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1213,7 +1213,7 @@ GameObject:
   - component: {fileID: 586627325}
   - component: {fileID: 586627324}
   m_Layer: 5
-  m_Name: Text (TMP) (1)
+  m_Name: RemainingPlayersText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1513,7 +1513,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df331f638e2fbbc4e86e83ebc55afa30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  humanPrefab: {fileID: 919132149155446097, guid: 5628f5e5bf076bf4581981a28285af8f, type: 3}
+  prefab: {fileID: 919132149155446097, guid: 00402a7c64ce2874f8c1c933e9dd451a, type: 3}
   poolSize: 50
 --- !u!4 &718654244
 Transform:
@@ -2189,6 +2189,7 @@ GameObject:
   - component: {fileID: 1395703523}
   - component: {fileID: 1395703522}
   - component: {fileID: 1395703521}
+  - component: {fileID: 1395703525}
   m_Layer: 4
   m_Name: Sea
   m_TagString: Untagged
@@ -2204,7 +2205,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1395703520}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -2266,12 +2267,24 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1395703520}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.0616915, y: -17.050056, z: 3.0983834}
+  m_LocalPosition: {x: 0, y: 0.7666664, z: 0}
   m_LocalScale: {x: 1000, y: 1, z: 1000}
   m_Children: []
   m_Father: {fileID: 1766285971}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1395703525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1395703520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: feef495359fb8d148858067985730d5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1566973980
 GameObject:
   m_ObjectHideFlags: 0
@@ -2332,6 +2345,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94319b13a3d386349b104da13f74474b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _currentState: 0
+  playerSpeed: 2
+  players: {fileID: 2092047307}
 --- !u!1 &1672784732
 GameObject:
   m_ObjectHideFlags: 0
@@ -2357,7 +2373,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1672784732}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.0616915, y: -20.050056, z: 3.0983834}
+  m_LocalPosition: {x: 0, y: -2.2333336, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1766285971}
@@ -2548,7 +2564,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1766285970}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.0616915, y: 20.050056, z: -3.0983834}
+  m_LocalPosition: {x: 0, y: 2.2333336, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1395703524}
@@ -2773,7 +2789,7 @@ GameObject:
   - component: {fileID: 2001261867}
   - component: {fileID: 2001261866}
   m_Layer: 5
-  m_Name: Text (TMP) (2)
+  m_Name: ScoreText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2991,6 +3007,8 @@ MonoBehaviour:
     - {fileID: 517067058}
     - {fileID: 255625796}
     - {fileID: 195959630}
+  remainingPlayerCountText: {fileID: 586627322}
+  scoreText: {fileID: 2001261864}
 --- !u!4 &2061277888 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8038903709723262673, guid: 3fa39f0b79e7fcd40af496a21226199d, type: 3}
@@ -3060,7 +3078,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2112551056}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.486, y: 0, z: 0.005}
+  m_LocalPosition: {x: -0.01, y: 0, z: 0.52}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1701652383}

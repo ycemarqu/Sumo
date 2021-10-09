@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public enum UIStates
@@ -34,6 +35,8 @@ public class UIManager : MonoBehaviour
 
     public SerializableDictionary<GameStates, GameObject> _StateCorrespondingUI;
 
+    private GameplayManager _gameplayInstance;
+
     private void Awake()
     {
         instance = this;
@@ -54,8 +57,11 @@ public class UIManager : MonoBehaviour
         // Disable Previous UI
         if(UItoActivate != null)
             UItoActivate.SetActive(false);
+        
         // Activate new UI
         UItoActivate = _StateCorrespondingUI[state];
         UItoActivate.SetActive(true);
     }
+
+    
 }
