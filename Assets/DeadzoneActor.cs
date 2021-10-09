@@ -9,8 +9,8 @@ public class DeadzoneActor : MonoBehaviour
     {
         if (other.CompareTag("Player") || other.CompareTag($"AI"))
         {
-            Destroy(other.gameObject);
-            GameplayManager.Instance.KillPlayer();
+            GameplayManager.Instance.KillPlayer(other.GetComponent<PlayerActor>());
+            other.gameObject.SetActive(false);
         }
     }
 }

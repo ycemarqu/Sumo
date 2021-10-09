@@ -1529,7 +1529,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df331f638e2fbbc4e86e83ebc55afa30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 919132149155446097, guid: 00402a7c64ce2874f8c1c933e9dd451a, type: 3}
+  prefab: {fileID: 6370098507625877821, guid: 73e0a1c7e902c0f4daa389e142c7e892, type: 3}
   poolSize: 50
 --- !u!4 &718654244
 Transform:
@@ -2224,8 +2224,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 0.73506355, z: 1}
+  m_Center: {x: 0, y: -0.13246822, z: 0}
 --- !u!23 &1395703522
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2362,8 +2362,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _currentState: 0
-  playerSpeed: 2
   levelDuration: 100
+  scalingFactor: 0.2
+  playerSpeed: 2
+  pushPower: 5
   players: {fileID: 2092047307}
 --- !u!1 &1672784732
 GameObject:

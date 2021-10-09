@@ -29,9 +29,13 @@ public class GameplayManager : MonoBehaviour
     #endregion
     
     public GameStates _currentState;
-    public float playerSpeed;
     public int levelDuration;
+
+    [Header("Player Attributes")]
     public float scalingFactor;
+    public float playerSpeed;
+    public float pushPower;
+    
     public GameObject players;
 
     public int PlayerCountOnPlatform { get; private set; } = 0;
@@ -68,8 +72,9 @@ public class GameplayManager : MonoBehaviour
         ChangeState?.Invoke(state);
     }
 
-    public void KillPlayer()
+    public void KillPlayer(PlayerActor killedActor)
     {
+        killedActor.TransferScores();
         PlayerCountOnPlatform--;
         PlayerCountChanged?.Invoke();
     }
