@@ -41,7 +41,7 @@ public class GameplayManager : MonoBehaviour
     public int PlayerCountOnPlatform { get; private set; } = 0;
 
     public static event Action<GameStates> ChangeState;
-    public static event Action PlayerCountChanged, RemainingSecondChanged;
+    public static event Action PlayerCountChanged, RemainingSecondChanged, GameoverEvent, ScoreChanged;
 
     private void Awake()
     {
@@ -54,12 +54,17 @@ public class GameplayManager : MonoBehaviour
         StartCoroutine(ChangeGameState(GameStates.Starting,0f));
         StartCoroutine(ChangeGameState(GameStates.Playing, 3f));
         
-        if(levelDuration > 0 )
-            InvokeRepeating(nameof(Countdown),0f,1f);
+        InvokeRepeating(nameof(Countdown),0f,1f);
+
     }
 
     private void Countdown()
     {
+        if (levelDuration <= 0)
+        {
+            Gameover();
+        }
+        
         if (_currentState != GameStates.Playing) return;
         levelDuration -= 1;
         RemainingSecondChanged?.Invoke();
@@ -77,11 +82,27 @@ public class GameplayManager : MonoBehaviour
         killedActor.TransferScores();
         PlayerCountOnPlatform--;
         PlayerCountChanged?.Invoke();
+        
+        if (PlayerCountOnPlatform == 1)
+        {
+            Gameover();
+        }
+    }
+
+    public void Gameover()
+    {
+        StartCoroutine(ChangeGameState(GameStates.End, 0f));
+        GameoverEvent?.Invoke();
     }
 
     public void SetPlayerCount(int count)
     {
         PlayerCountOnPlatform = count;
         PlayerCountChanged?.Invoke();
+    }
+
+    public void FireScoreChangeEvent()
+    {
+        ScoreChanged?.Invoke();
     }
 }

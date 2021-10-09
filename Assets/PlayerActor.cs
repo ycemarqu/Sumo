@@ -6,12 +6,14 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
 public class PlayerActor : MonoBehaviour
 {
-    private int _score = 1000, collectedFoodCount = 0, killedPlayerCount = 0;
+    public bool isActive = true;
+    public int score = 1000;
     private Rigidbody _rb;
     private float _scalingFactor;
     private float _pushPower;
 
     private Transform lastPusher;
+    [NonSerialized] public int killedPlayerCount = 0;
 
     private void Awake()
     {
@@ -22,8 +24,8 @@ public class PlayerActor : MonoBehaviour
 
     public void IncreaseScore(int score = 100)
     {
-        _score += score;
-        collectedFoodCount++;
+        this.score += score;
+        GameplayManager.Instance.FireScoreChangeEvent();
         IncreaseSize(score / 100f);
     }
 
@@ -35,11 +37,17 @@ public class PlayerActor : MonoBehaviour
     private void IncreaseSize(float times)
     {
         transform.localScale += new Vector3(_scalingFactor, _scalingFactor, _scalingFactor) * times;
+        _rb.drag += 0.03f*times;
     }
 
     public void TransferScores()
     {
-        if(lastPusher != null) lastPusher.GetComponent<PlayerActor>().IncreaseScore(_score);
+        if (lastPusher != null)
+        {
+            var actor = lastPusher.GetComponent<PlayerActor>();
+            actor.IncreaseScore(score);
+            actor.killedPlayerCount++;
+        }
     }
 
     private void OnCollisionEnter(Collision other)
@@ -50,7 +58,10 @@ public class PlayerActor : MonoBehaviour
         {
             lastPusher = collider.transform;
             var enemyRB = collider.attachedRigidbody;
-            enemyRB.AddForce((collider.transform.position - transform.position) * _pushPower * (_score/1000f), ForceMode.Impulse);
+
+            var temp = collider.transform.position - transform.position;
+            temp.y = 0;
+            enemyRB.AddForce(temp * _pushPower * (score/2000f), ForceMode.Impulse);
         }
     }
 }
