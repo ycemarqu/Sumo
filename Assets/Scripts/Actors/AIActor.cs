@@ -35,7 +35,10 @@ public class AIActor : MonoBehaviour
 
     private void Update()
     {
-        _agent.destination = _target;
+        if (GameplayManager.Instance._currentState == GameStates.Playing)
+        {
+            _agent.destination = _target;
+        }
     }
 
     public Transform GetClosestEnemy(List<Transform> enemies)
