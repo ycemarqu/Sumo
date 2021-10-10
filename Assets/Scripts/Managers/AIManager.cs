@@ -1,26 +1,10 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
-public struct ElementsOnPlatform
-{
-    public GameObject[] Player;
-    public GameObject[] Ais;
-    public GameObject[] Foods;
-    
-    public void InitializePlayerAndAI()
-    {
-        Player = GameObject.FindGameObjectsWithTag("Player");
-        Ais = GameObject.FindGameObjectsWithTag("AI");
-    }
-
-    public void InitializeFoods()
-    {
-        Foods = GameObject.FindGameObjectsWithTag("Food");
-    }
-}
 
 public class AIManager : MonoBehaviour
 {
@@ -40,13 +24,31 @@ public class AIManager : MonoBehaviour
 
     #endregion
 
-    public ElementsOnPlatform Elements;
+    public List<Transform> elements;
     
     private void Awake()
     {
         instance = this;
-        Elements.InitializePlayerAndAI();
     }
-
     
+    public void InitializeElements()
+        {
+            elements = new List<Transform>();
+            var Player = GameObject.FindGameObjectsWithTag("Player");
+            var Ais = GameObject.FindGameObjectsWithTag("AI");
+            var Foods = GameObject.FindGameObjectsWithTag("Food");
+
+            foreach (var i in Player)
+            {
+                elements.Add(i.transform);
+            }
+            foreach (var i in Ais)
+            {
+                elements.Add(i.transform);
+            }
+            foreach (var i in Foods)
+            {
+                elements.Add(i.transform);
+            }
+        }
 }

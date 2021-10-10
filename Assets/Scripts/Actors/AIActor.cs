@@ -10,39 +10,49 @@ public class AIActor : MonoBehaviour
 {
     private PlayerActor _playerActor;
     private NavMeshAgent _agent;
+    private Vector3 _target;
 
     private void Awake()
     {
         _playerActor = GetComponent<PlayerActor>();
-        _agent = new NavMeshAgent();
+        _agent = GetComponent<NavMeshAgent>();
     }
 
     private void Start()
     {
-        // _agent.SetDestination(FindClosestObject().position);
+        AIManager.Instance.InitializeElements();
+        InvokeRepeating(nameof(SetDestination), 0f, 2f);
+    }
+
+    private void SetDestination()
+    {
+        if (_playerActor.isActive)
+        {
+            _target = GetClosestEnemy(AIManager.Instance.elements).position;
+            Debug.Log("Repeat");
+        }
     }
 
     private void Update()
     {
-        if (_playerActor.isActive)
-        {
-            
-        }
+        _agent.destination = _target;
     }
 
-    // private Transform FindClosestObject()
-    // {
-    //     Dictionary<Transform,float> currentClosest = new Dictionary<Transform, float>();
-    //     foreach (var i in AIManager.Instance.Elements)
-    //     {
-    //         if (i.GetComponent<PlayerActor>().isActive && i != transform)
-    //         {
-    //             var dist = Vector3.Distance(i.position, transform.position);
-    //             if(dist < currentClosest.Values.Single())
-    //                 currentClosest = {i,dist};
-    //         }
-    //     }
-    //
-    //     return currentClosest.Keys.Single();
-    // }
+    public Transform GetClosestEnemy(List<Transform> enemies)
+    {
+        Transform tMin = null;
+        float minDist = Mathf.Infinity;
+        Vector3 currentPos = transform.position;
+        foreach (Transform t in enemies)
+        {
+            float dist = Vector3.Distance(t.position, currentPos);
+            if (dist < minDist && t != transform)
+            {
+                tMin = t;
+                minDist = dist;
+            }
+        }
+        return tMin;
+    }
+
 }

@@ -48,7 +48,7 @@ public class FoodManager : MonoBehaviour
         _platformCollider = platform.GetComponent<Collider>();
         _spawnFood.SetStartingFoods(startingFoodCount);
         _spawnFood.RepeatingSpawnFood();
-        AIManager.Instance.Elements.InitializeFoods();
+        AIManager.Instance.InitializeElements();
     }
 
     public void DeleteFood(GameObject food)
