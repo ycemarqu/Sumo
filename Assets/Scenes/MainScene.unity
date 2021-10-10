@@ -2515,6 +2515,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe3082a0255b488459219f6b2efeddfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _persistent: 1
   startingFoodCount: 10
   maxFoodCount: 12
   platform: {fileID: 127836250}
@@ -2531,9 +2532,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94319b13a3d386349b104da13f74474b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _persistent: 1
   _currentState: 0
   levelDuration: 100
-  scalingFactor: 0.2
+  scalingFactor: 0.1
   playerSpeed: 2
   pushPower: 5
   players: {fileID: 2092047307}
@@ -2549,6 +2551,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8a56f00723e18a4ab9d1fb3a5639378, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _persistent: 1
   elements: []
 --- !u!1 &1672784732
 GameObject:
@@ -3218,6 +3221,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10261ee7777070049882013076e90458, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _persistent: 1
   _StateCorrespondingUI:
     m_keys: 000000000100000002000000
     m_values:
@@ -3398,14 +3402,6 @@ PrefabInstance:
     - target: {fileID: 8038903709723262673, guid: 3fa39f0b79e7fcd40af496a21226199d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8038903709723262675, guid: 3fa39f0b79e7fcd40af496a21226199d, type: 3}
-      propertyPath: m_CastShadows
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8038903709723262675, guid: 3fa39f0b79e7fcd40af496a21226199d, type: 3}
-      propertyPath: m_ReceiveShadows
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8038903709723262686, guid: 3fa39f0b79e7fcd40af496a21226199d, type: 3}
       propertyPath: m_Name

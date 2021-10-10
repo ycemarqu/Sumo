@@ -12,24 +12,8 @@ public enum UIStates
     
 }
 
-public class UIManager : MonoBehaviour
+public class UIManager : Singleton<UIManager>
 {
-    #region Singleton
-
-    private static UIManager instance = null;
-    
-    
-    // Game Instance Singleton
-    public static UIManager Instance
-    {
-        get
-        { 
-            return instance; 
-        }
-    }
-
-    #endregion
-
     private GameStates _currentState;
     private GameObject UItoActivate;
 
@@ -37,10 +21,6 @@ public class UIManager : MonoBehaviour
 
     private GameplayManager _gameplayInstance;
 
-    private void Awake()
-    {
-        instance = this;
-    }
     
     private void OnEnable()
     {

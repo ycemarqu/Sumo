@@ -4,23 +4,8 @@ using System.Collections.Generic;
 using Unity.Collections;
 using UnityEngine;
 
-public class FoodManager : MonoBehaviour
+public class FoodManager : Singleton<FoodManager>
 {
-    #region Singleton
-
-    private static FoodManager instance = null;
-    
-    // Game Instance Singleton
-    public static FoodManager Instance
-    {
-        get
-        { 
-            return instance; 
-        }
-    }
-
-    #endregion
-    
     [Header("Food Counts")]
     [Tooltip("Food count that is initialized at beginning of level")]public int startingFoodCount;
     [Tooltip("Maximum Count of Foods that can exist on scene")]public int maxFoodCount;
@@ -39,7 +24,6 @@ public class FoodManager : MonoBehaviour
 
     private void Awake()
     {
-        instance = this;
         _spawnFood = dependencies.GetComponent<ISpawnFood>();
     }
 

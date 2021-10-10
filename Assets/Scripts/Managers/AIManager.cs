@@ -6,31 +6,10 @@ using UnityEditor;
 using UnityEngine;
 
 
-public class AIManager : MonoBehaviour
+public class AIManager : Singleton<AIManager>
 {
-    #region Singleton
-
-    private static AIManager instance = null;
-    
-    
-    // Game Instance Singleton
-    public static AIManager Instance
-    {
-        get
-        { 
-            return instance; 
-        }
-    }
-
-    #endregion
-
     public List<Transform> elements;
     
-    private void Awake()
-    {
-        instance = this;
-    }
-
     private void Start()
     {
         InvokeRepeating(nameof(InitializeElements), 0f, 1f);
@@ -48,7 +27,7 @@ public class AIManager : MonoBehaviour
         AppendToList(Foods);
     }
 
-    public void AppendToList(GameObject[] arr)
+    private void AppendToList(GameObject[] arr)
     {
         foreach (var i in arr)
         {

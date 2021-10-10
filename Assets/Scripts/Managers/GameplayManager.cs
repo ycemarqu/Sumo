@@ -10,33 +10,17 @@ public enum GameStates
     
 }
 [DefaultExecutionOrder(-1)]
-public class GameplayManager : MonoBehaviour
+public class GameplayManager : Singleton<GameplayManager>
 {
-    #region Singleton
-
-    private static GameplayManager instance = null;
-    
-    
-    // Game Instance Singleton
-    public static GameplayManager Instance
-    {
-        get
-        { 
-            return instance; 
-        }
-    }
-
-    #endregion
-    
     public GameStates _currentState;
     public int levelDuration;
 
     [Header("Player Attributes")]
-    public float scalingFactor;
+    [Tooltip("How bigger the sumo will get after boost")]public float scalingFactor;
     public float playerSpeed;
     public float pushPower;
     
-    public GameObject players;
+    [Tooltip("Empty parent object of all players")]public GameObject players;
 
     public int PlayerCountOnPlatform { get; private set; } = 0;
 
@@ -45,7 +29,6 @@ public class GameplayManager : MonoBehaviour
 
     private void Awake()
     {
-        instance = this;
         SetPlayerCount(players.transform.childCount);
     }
 
