@@ -29,7 +29,7 @@ public class AIActor : MonoBehaviour
         if (_playerActor.isActive)
         {
             _target = GetClosestEnemy(AIManager.Instance.elements).position;
-            Debug.Log("Repeat");
+            // Debug.Log("Repeat");
         }
     }
 
@@ -49,7 +49,7 @@ public class AIActor : MonoBehaviour
         foreach (Transform t in enemies)
         {
             float dist = Vector3.Distance(t.position, currentPos);
-            if (dist < minDist && t != transform)
+            if (dist < minDist && t.gameObject != gameObject)
             {
                 tMin = t;
                 minDist = dist;

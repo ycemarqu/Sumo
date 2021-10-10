@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class FoodActor : MonoBehaviour
 {
+    private bool isActive = true;
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player") || other.CompareTag($"AI"))

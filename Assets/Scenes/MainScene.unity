@@ -2533,7 +2533,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _currentState: 0
   levelDuration: 100
-  scalingFactor: 0.1
+  scalingFactor: 0.2
   playerSpeed: 2
   pushPower: 5
   players: {fileID: 2092047307}

@@ -30,25 +30,29 @@ public class AIManager : MonoBehaviour
     {
         instance = this;
     }
-    
-    public void InitializeElements()
-        {
-            elements = new List<Transform>();
-            var Player = GameObject.FindGameObjectsWithTag("Player");
-            var Ais = GameObject.FindGameObjectsWithTag("AI");
-            var Foods = GameObject.FindGameObjectsWithTag("Food");
 
-            foreach (var i in Player)
-            {
-                elements.Add(i.transform);
-            }
-            foreach (var i in Ais)
-            {
-                elements.Add(i.transform);
-            }
-            foreach (var i in Foods)
-            {
-                elements.Add(i.transform);
-            }
+    private void Start()
+    {
+        InvokeRepeating(nameof(InitializeElements), 0f, 1f);
+    }
+
+    public void InitializeElements()
+    {
+        elements = new List<Transform>();
+        var Player = GameObject.FindGameObjectsWithTag("Player");
+        var Ais = GameObject.FindGameObjectsWithTag("AI");
+        var Foods = GameObject.FindGameObjectsWithTag("Food");
+
+        AppendToList(Player);
+        AppendToList(Ais);
+        AppendToList(Foods);
+    }
+
+    public void AppendToList(GameObject[] arr)
+    {
+        foreach (var i in arr)
+        {
+            elements.Add(i.transform);
         }
+    }
 }
